@@ -1,0 +1,50 @@
+include yslt.yml2
+
+
+
+textstylesheet {   
+    template "entity"
+        ||
+        public class «@name» {
+            `` apply "nfunc"
+            `` apply "mfunc"
+        }
+        ||
+
+    template "nfunc"
+        ||
+        public native «@ftype» «@fname» («@ptype» «@pname»);
+        ||
+
+    template "mfunc"
+
+        ||
+        public static void «@name»(String[] args) 
+        {
+                System.loadLibrary("native");
+
+                `` apply "obj"
+                
+                `` apply "attr"
+
+                `` apply "output"
+        }
+
+        
+        ||
+
+    template "attr"
+        ||
+            «@type» «@name» = «@obj».«@method»("«@value»");
+        ||
+
+    template "obj"
+        ||
+            «@type» «@name» = new «@type»();  
+        ||
+
+    template "output"
+        ||
+            System.out.println("«@text»: " + «@name»);
+        ||
+}

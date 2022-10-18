@@ -1,0 +1,6 @@
+decl entity @name;
+decl nfunc @ftype @fname @ptype @pname;
+decl mfunc @name;
+decl attr @type @name @obj @method *value{value *value};
+decl obj @type @name;
+decl output @name @text;
