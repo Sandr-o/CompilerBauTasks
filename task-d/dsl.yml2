@@ -1,0 +1,10 @@
+decl entity @name;
+decl nfunc @ftype @fname @ptype @pname;
+
+entity NativeMethods {
+    nfunc I intMethodName I nummer;
+    nfunc B booleanMethodName B b;
+    nfunc S stringMethodName S text;
+    nfunc I intArrayMethodName IA intArray;
+
+}   

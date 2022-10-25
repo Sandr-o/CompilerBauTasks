@@ -1,0 +1,49 @@
+include yslt.yml2
+
+textstylesheet { 
+    template "/structure" apply "entity", 0;  
+
+    template "entity" {
+        ||
+        #include <string>
+        using namespace std;
+        class «@name» {
+            public:
+            ``apply "nfunc";             
+        }
+        ||
+    }
+    template "nfunc" {
+        ||
+        ||
+            choose {
+                when "@ftype='I'"
+                    >       virtual int «@fname»
+                
+                when "@ftype='S'"
+                    >       virtual string «@fname»
+                
+                when "@ftype='B'"
+                    >       virtual bool «@fname»
+                    
+                otherwise "invalid type";
+            }
+            choose {
+                when "@ptype='I'"
+                    > (int «@pname») = 0;
+                
+                when "@ptype='IA'"
+                    > (int «@pname»[]) = 0;
+                
+                when "@ptype='S'"
+                    > (string «@pname») = 0;
+                
+                when "@ptype='B'"
+                    > (bool «@pname») = 0;
+                    
+                otherwise "invalid type";
+            }
+        ||
+    }
+    
+}

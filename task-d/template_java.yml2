@@ -1,0 +1,49 @@
+include yslt.yml2
+
+textstylesheet { 
+    template "/structure" apply "entity", 0;  
+
+    template "entity" {
+        || 
+        public class «@name» {
+            ``apply "nfunc";             
+        }
+        ||
+    }
+    template "nfunc" {
+        ||
+        ||
+            choose {
+                when "@ftype='I'"
+                    >       public native int «@fname»
+                
+                when "@ftype='IA'"
+                    >       public native int[] «@fname»
+                
+                when "@ftype='S'"
+                    >       public native String «@fname»
+                
+                when "@ftype='B'"
+                    >       public native boolean «@fname»
+                    
+                otherwise "invalid type";
+            }
+            choose {
+                when "@ptype='I'"
+                    > (int «@pname»);
+                
+                when "@ptype='IA'"
+                    > (int[] «@pname»);
+                
+                when "@ptype='S'"
+                    > (String «@pname»);
+                
+                when "@ptype='B'"
+                    > (boolean «@pname»);
+                    
+                otherwise "invalid type";
+            }
+        ||
+    }
+    
+}

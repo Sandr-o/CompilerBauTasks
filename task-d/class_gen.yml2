@@ -1,0 +1,42 @@
+include yslt.yml2
+
+textstylesheet { 
+    template "/structure" apply "entity", 0;  
+
+    template "entity" {
+        ||
+            public class JNIGenerated {
+                static{
+                    System.loadLibrary("jni_generated");
+                }
+                public static void main(String[] args){
+                    «@name» nm = new «@name»();
+
+                    `` apply "nfunc"
+                }
+            }
+
+        ||
+    }
+    template "nfunc" {
+        ||
+        ||
+                choose {
+                    when "@ptype='I'"
+                        >             int square = nm.«@fname»(5);\n            System.out.println("«@fname»: "+ square);\n
+                    
+                    when "@ptype='IA'"
+                        >             int sum = nm.«@fname»(new int []{1,1,2,3,5,8,13});\n            System.out.println("«@fname»: "+ sum);\n
+                    
+                    when "@ptype='S'"
+                        >             String text = nm.«@fname»("java");\n            System.out.println("«@fname»: "+ text);\n
+                    
+                    when "@ptype='B'"
+                        >             boolean b = nm.«@fname»(true);\n            System.out.println("«@fname»: "+ b);\n
+                        
+                    otherwise "invalid type";
+                }
+        ||
+    }
+    
+}
