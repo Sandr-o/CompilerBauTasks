@@ -5,7 +5,7 @@
 #include <cctype>
 using namespace std;
 /*
- * Class:     Example1
+ * Class:     NativeMethods
  * Method:    intMethodName
  * Signature: (I)I
  */
@@ -16,7 +16,7 @@ JNIEXPORT jint JNICALL Java_NativeMethods_intMethodName (JNIEnv *env, jobject ob
 }
 
 /*
- * Class:     Example1
+ * Class:     NativeMethods
  * Method:    booleanMethodName
  * Signature: (Z)Z
  */
@@ -25,7 +25,7 @@ JNIEXPORT jboolean JNICALL Java_NativeMethods_boolMethodName (JNIEnv *env, jobje
   }
 
 /*
- * Class:     Example1
+ * Class:     NativeMethods
  * Method:    stringMethodName
  * Signature: (Ljava/lang/String;)Ljava/lang/String;
  */
@@ -43,7 +43,7 @@ JNIEXPORT jstring JNICALL Java_NativeMethods_stringMethodName (JNIEnv *env, jobj
   }
 
 /*
- * Class:     Example1
+ * Class:     NativeMethods
  * Method:    intArryMethodeName
  * Signature: ([I)I
  */
