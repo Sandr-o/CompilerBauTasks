@@ -7,7 +7,7 @@ textstylesheet {
         ||
             public class JNIGenerated {
                 static{
-                    System.loadLibrary("jni_generated");
+                    System.loadLibrary("jnigenerated");
                 }
                 public static void main(String[] args){
                     «@name» nm = new «@name»();
