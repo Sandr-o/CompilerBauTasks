@@ -13,7 +13,7 @@ Enthalten im Verzeichnis `task-b`.
 Implementierungen eines die vier im Tutorial behandelten Methoden enthaltenden Interfaces in Java und C++. In C++ wurde dies als abstrakte Klasse durch die Verwendung von `virtual`-Funktionen realisiert. Für die Java-Implementierung lag zunächst natürlich der Gedanke nahe, ein tatsächliches Java-Interface zu definieren. Dieses lässt allerdings keine `native`-Methoden zu, welche für die Verwendung der JNI später nötig sind, weshalb das Interface stattdessen als normale Klasse mit Methodensignaturen realisiert wurde.
 
 ## Aufgabenteil c)
-Enhalten im Verzeichnis `task-c`.
+Enthalten im Verzeichnis `task-c`.
 
 Eine sprachenunabhängige Beschreibung eines Interface in YML2, welches die vier Methoden enthält. Die folgende Tabelle liefert eine Art Legende zur definierten DSL.
 
