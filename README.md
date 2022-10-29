@@ -46,8 +46,10 @@ Im Grunde führt das Script die folgenden Schritte aus:
 
 1. Die Java-Implementierungen für das Interface (`NativeMethods.java`) und die ausführbare Klasse (`JNIGenerated.java`) werden unter Verwendung von `yml2proc` aus der DSL generiert.
 2. Ein Header-File (`JNIGenerated.h`) wird durch den Befehl `javac -h` aus `JNIGenerated.java` generiert.
-3. Ein leeres cpp-File wird generiert. An dieser Stelle wartet das Script auf Userinput. Der User muss die im Header-File enthaltenen Funktionsköpfe in die cpp-Datei übertragen und die Funktionen vollständig definieren (Bodys hinzufügen). Als Beispiel für ein solches vollständig definiertes cpp-File dient `SAMPLE_NativeMethods.cpp` (dieses kann auch direkt verwendet werden; hierfür muss es zu `NativeMethods.cpp` umbenannt werden und das leere vom Script generierte cpp-File muss entfernt werden).
+3. Optional wird ein leeres cpp-File generiert. An dieser Stelle wartet das Script auf Userinput. Der User muss die im Header-File enthaltenen Funktionsköpfe in die generierte cpp-Datei übertragen und die Funktionen vollständig definieren (Bodys hinzufügen). Ein Beispiel für ein solches vollständig definiertes cpp-File kann im Verzeichnis `task-d/script-sample-results` eingesehen werden (Datei `NativeMethods.cpp` - diese kann auch direkt anstelle des vom Script generierten Files verwendet werden; hierfür kann die Generierung des .cpp Files im Script übersprungen werden. Die zu verwendende Datei muss dann in dasselbe Verzeichnis wie das Script kopiert oder verschoben werden).
 4. Ist die C++-Implementierung der Funktionen erfolgt, kann der User im Script die Fortsetzung des Programms bestätigen.
 5. Ist die Bestätigung erfolgt, wird mit Hilfe von g++ eine Shared Library namens `libjnigenerated.so` aus dem cpp-File generiert.
 6. Die Java-Datei `JNIGenerated.java`, welche die main-Methode enthält, wird ausgeführt und die Ergebnisse der vier nativen Methodenaufrufe ausgegeben.
+
+Sämtliche Ergebnisse einer erfolgreichen Beispielausführung des Scripts befinden sich im Verzeichnis `task-d/script-sample-results`.
 
