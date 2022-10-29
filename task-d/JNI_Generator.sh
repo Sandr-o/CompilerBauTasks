@@ -8,17 +8,17 @@ echo $'\nThis little Script generates some JNI-compatible Java-Code and executes
 sleep 2
 
 echo $'\n\033[0;33m==== Step 1: Generating NativeMethods.java...\033[0m'
-#yml2proc -y gen_native_java.yml2 dsl.yml2 >> NativeMethods.java
+yml2proc -y gen_native_java.yml2 dsl.yml2 >> NativeMethods.java
 sleep 1
 echo "Yay! NativeMethods.java generated!"
 
 echo $'\n\033[0;33m==== Step 2: Generating JNIGenerated.java...\033[0m'
-#yml2proc -y class_gen.yml2 dsl.yml2 >> JNIGenerated.java
+yml2proc -y class_gen.yml2 dsl.yml2 >> JNIGenerated.java
 sleep 1
 echo "Yay! JNIGenerated.java generated!"
 
 echo $'\n\033[0;33m==== Step 3: Generating Header-File from JNIGenerated.java...\033[0m'
-#javac -h . JNIGenerated.java
+javac -h . JNIGenerated.java
 sleep 1
 echo "Yay! Header-File generated!"
 
@@ -26,7 +26,7 @@ echo $'\n\033[0;33m==== Step 4: Generating .cpp file to edit.\033[0m If you wish
 read answer
 if [ "$answer" != "${answer#[Cc]}" ] ;then 
     echo $'\nAlright, generating a .cpp file...'
-    #touch NativeMethods.cpp
+    touch NativeMethods.cpp
 else
     echo $'\nAs you wish, skipping .cpp file generation...'
 fi
@@ -38,13 +38,13 @@ read answer
 if [ "$answer" != "${answer#[Cc]}" ] ;then 
     echo "Great, let's continue!"
     echo $'\n\033[0;33m==== Step 5: Generating shared library libjnigenerated...\033[0m'
-    #g++ -fPIC -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/linux" -shared -o libjnigenerated.so NativeMethods.cpp
+    g++ -fPIC -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/linux" -shared -o libjnigenerated.so NativeMethods.cpp
     sleep 1
     echo "Yay! Shared library generated!"
     
     echo $'\n\033[0;33m==== Step 6: Executing NativeMethods.java... here are your results:\033[0m'
 
-    #java -Djava.library.path=. JNIGenerated
+    java -Djava.library.path=. JNIGenerated
     sleep 1
 else
     echo $'\n\033[0;31mInvalid command!\033[0m Sorry, but you killed it! Bye!'
