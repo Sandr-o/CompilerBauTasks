@@ -20,7 +20,7 @@ JNIEXPORT jint JNICALL Java_NativeMethods_intMethodName (JNIEnv *env, jobject ob
  * Method:    booleanMethodName
  * Signature: (Z)Z
  */
-JNIEXPORT jboolean JNICALL Java_NativeMethods_boolMethodName (JNIEnv *env, jobject obj, jboolean boolean) {
+JNIEXPORT jboolean JNICALL Java_NativeMethods_booleanMethodName (JNIEnv *env, jobject obj, jboolean boolean) {
     return !boolean;
   }
 
